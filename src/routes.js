@@ -9,8 +9,8 @@ Vue.use(VueRouter)
 export default new VueRouter({
 	mode: 'history',
 	routes: [
-		{path: '/registrar', 	component: VnRegistro},
-		{path: '/', 	component: VnLogin},
-		{path: '/notas', 	component: VnPainel},
+		{path: '/registrar', component: VnRegistro},
+		{path: '/', component: VnLogin},
+		{path: '/notas', component: VnPainel},
 	],
 })
