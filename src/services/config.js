@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 export const http = axios.create({
-	baseURL: 'http://vue-notes-api.azurewebsites.net/',
+	baseURL: 'http://127.0.0.1:8000/',
 	timeout: 10000,
 	headers: {
-		'Access-Control-Allow-Origin':	'*',
+		//'Access-Control-Allow-Origin':	'*',
 	},
 });

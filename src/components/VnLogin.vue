@@ -3,12 +3,12 @@
 		<h2>Entre	no	sistema</h2>
 		<router-link to="/registrar">Registre-se</router-link>
 		<hr>
-		<lv-input titulo="Email">
+		<vn-input titulo="Email">
 			<input type="email" v-model="usuario.email">
-		</lv-input>
-		<lv-input titulo="Senha">
+		</vn-input>
+		<vn-input titulo="Senha">
 			<input	type="password" v-model="usuario.senha">
-		</lv-input>
+		</vn-input>
 		<br>
 		<input @click='logar' type="submit" :value="estado" :disabled="estado!='Entrar'">
 	</div>
@@ -34,7 +34,17 @@ export default{
 			this.estado = 'Carregando...'
 			Usuario.logar(this.usuario).then(resposta => {
 
-			}).catch(e => this.estado = 'Entrar')
+				if(resposta.data.sucesso){
+					this.$store.dispatch('logarUsuario',resposta.data.usuario)
+					this.$router.replace('/notas')
+				}else{
+					this.estado = 'Entrar'
+				}
+
+			}).catch(e => {
+				this.estado = 'Entrar'
+				console.log('Erro:'+e)
+			})
 		},
 	},
 }

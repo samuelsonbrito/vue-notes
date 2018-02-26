@@ -14,7 +14,7 @@
 		</vn-input>
 
 		<vn-input titulo="Password">
-			<input type="password" v-model="usuario.password">
+			<input type="password" v-model="usuario.senha">
 		</vn-input>
 		<br>
 		<input @click='registrar' type="submit" :value="estado" :disabled="estado	!='Registrar'">
