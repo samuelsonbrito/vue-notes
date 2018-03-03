@@ -7,6 +7,8 @@ import VueSession from 'vue-session'
 Vue.component('vn-input',	VnInput)
 Vue.use(VueSession)
 
+Vue.prototype.$bus = new Vue()
+
 new Vue({
   el: '#app',
   render: h => h(App),
