@@ -35,8 +35,13 @@ export default{
 			Usuario.logar(this.usuario).then(resposta => {
 
 				if(resposta.data.sucesso){
-					this.$store.dispatch('logarUsuario',resposta.data.usuario)
+
+					this.$session.start();
+					this.$session.set('id', resposta.data.usuario.id)
+					this.$session.set('nome', resposta.data.usuario.nome)
+					this.$session.set('email', resposta.data.usuario.email)
 					this.$router.replace('/notas')
+					
 				}else{
 					this.estado = 'Entrar'
 				}

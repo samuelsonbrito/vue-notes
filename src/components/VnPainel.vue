@@ -1,6 +1,6 @@
 <template>
   <div>
-      <span>Painel logado com {{ $store.state.usuario.nome }}</span>
+      <span>Painel logado com {{ this.$session.get('nome') }}</span>
       <button @click="sair">Sair</button>
   </div>
 </template>
@@ -10,9 +10,14 @@ export default {
   name: 'vn-painel',
   methods: {
     sair(){
-      this.$store.dispatch('logarUsuario', {id: 0, nome: '', email: ''})
-      this.$route.replace('/')
+      this.$session.destroy()
+      this.$router.replace('/')
     }
-  }
+  },
+  beforeCreate: function () {
+    if (!this.$session.exists()) {
+      this.$router.push('/')
+    }
+  }   
 }
 </script>

@@ -6,7 +6,15 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  mounted() {
+
+    console.log(this.$session.get('id'))
+    console.log(this.$session.get('nome'))
+    console.log(this.$session.get('email'))
+
+  } 
+
 }
 </script>
 
