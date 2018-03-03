@@ -26,9 +26,14 @@ export default{
 	methods: {
 		atualizar() {
 			Nota.listar( this.campos ).then(resposta => {
-				if(resposta.data.sucesso)
+				
+				if(resposta.data.sucesso){
 					this.notas = resposta.data.notas
-			}).catch( e => {} )
+				}
+					
+			}).catch( e => {
+				console.log('Erro: '+e)
+			} )
 		}
 	},
 	computed: {
